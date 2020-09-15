@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router, Switch, Route} from
+'react-router-dom';
 import './App.css';
+import Home from './components/pages/Home';
+import Report from './components/pages/Report';
+import { WeekOne, WeekTwo, WeekThree, WeekFour, WeekFive, WeekSix} from './components/pages/week/Week';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+        <Router>
+            <Navbar />
+            <Switch>
+                <Route path='/' exact component={Home} />
+                <Route path='/reports' component={Report} />
+                <Route path='/week/1' component={WeekOne} />
+                <Route path='/week/2' component={WeekTwo} />
+                <Route path='/week/3' component={WeekThree} />
+                <Route path='/week/4' component={WeekFour} />
+                <Route path='/week/5' component={WeekFive} />
+                <Route path='/week/6' component={WeekSix} />
+            </Switch>
+        </Router>
+        </>
+    );
 }
 
 export default App;
